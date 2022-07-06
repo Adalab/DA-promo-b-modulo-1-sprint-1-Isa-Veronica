@@ -1,0 +1,18 @@
+import math
+import random
+
+# Variables numéricas
+
+# Cadenas fijas de texto
+
+# User input
+
+# Cantidades calculadas
+intentos_permitidos = round(math.log(lim_superior - lim_inferior + 1,2))
+numero_secreto = random.randint(lim_inferior,lim_superior)
+
+# Inicio del juego
+
+# Adivinar 1 intento
+
+# Fin del juego
