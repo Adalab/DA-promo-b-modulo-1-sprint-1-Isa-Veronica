@@ -27,15 +27,24 @@ CREATE TABLE empleados(
     fecha_incorporacion DATE NOT NULL,
     PRIMARY KEY (id_empleados)
     );
-    
+ USE tienda_zapatillas;   
 CREATE TABLE facturas(
 	id_factura INT AUTO_INCREMENT NOT NULL,
     numero_factura VARCHAR(45) NOT NULL,
     fecha DATE NOT NULL,
     id_zapatillas INT NOT NULL,
-    id_empleado INT NOT NULL,
+    id_empleados INT NOT NULL,
     id_cliente INT NOT NULL,
-    PRIMARY KEY(id_factura)
+    PRIMARY KEY (id_factura),
+	CONSTRAINT `fk_facturas_zapatillas`
+		FOREIGN KEY (`id_zapatillas`)
+		REFERENCES `zapatillas` (id_zapatillas) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT `fk_facturas_empleados`
+		FOREIGN KEY (`id_empleados`)
+		REFERENCES `empleados` (id_empleados) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT `fk_facturas_clientes`
+		FOREIGN KEY (`id_cliente`)
+		REFERENCES `clientes` (id_cliente) ON DELETE CASCADE ON UPDATE CASCADE
 	);
     
     
